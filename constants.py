@@ -13,4 +13,4 @@ BLACK = (0,0,0)
 
 # snake constants
 BLOCK_SIZE = 20
-SPEED = 20
+SPEED = 200

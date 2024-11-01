@@ -88,7 +88,7 @@ class SnakeGameAI:
         self._update_ui()
         self.clock.tick(SPEED)
         # 6. return game over and score
-        return game_over, self.score
+        return reward, game_over, self.score
     
     def is_collision(self, pt = None):
         if pt is None:
@@ -123,10 +123,10 @@ class SnakeGameAI:
             new_dir = clock_wise[idx] #no change
         elif np.array_equal(action, [0 ,1 ,1]):
             next_idx = (idx + 1) % 4
-            new_dir = clock_wise(next_idx)
+            new_dir = clock_wise[next_idx]
         else: #[0, 0, 1]
             next_idx = (idx - 1) % 4
-            new_dir = clock_wise(next_idx)
+            new_dir = clock_wise[next_idx]
 
         self.direction = new_dir
 
