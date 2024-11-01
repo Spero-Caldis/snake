@@ -3,7 +3,7 @@ import random
 import numpy as np
 from collections import deque
 from game import SnakeGameAI, Direction, Point
-from constants import MAX_MEMORY, BATCH_SIZE, LR, BLOCK_SIZE
+from constants import MAX_MEMORY, BATCH_SIZE, LR, BLOCK_SIZE, SPEED
 from model import Linear_QNet, QTrainer
 from helper import plot
 
@@ -123,7 +123,7 @@ def train():
             if agent.n_games + 1 % 100 == 0:
                 game.reset(20)
             else:
-                game.reset()
+                game.reset(SPEED)
             
             agent.n_games += 1
             agent.train_long_memory()

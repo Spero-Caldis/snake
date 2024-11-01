@@ -34,7 +34,7 @@ class SnakeGameAI:
         self.clock = pygame.time.Clock()
         self.reset()
 
-    def reset(self, speed = SPEED):
+    def reset(self, speed):
         # init game state
         self.speed = speed
         self.direction = Direction.RIGHT
