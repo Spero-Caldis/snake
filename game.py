@@ -34,8 +34,9 @@ class SnakeGameAI:
         self.clock = pygame.time.Clock()
         self.reset()
 
-    def reset(self):
+    def reset(self, speed = SPEED):
         # init game state
+        self.speed = speed
         self.direction = Direction.RIGHT
         
         self.head = Point(self.w/2, self.h/2)
@@ -79,14 +80,14 @@ class SnakeGameAI:
         # 4. place new food or just move
         if self.head == self.food:
             self.score += 1
-            reward = 10
+            reward = 12
             self._place_food()
         else:
             self.snake.pop()
         
         # 5. update ui and clock
         self._update_ui()
-        self.clock.tick(SPEED)
+        self.clock.tick(self.speed)
         # 6. return game over and score
         return reward, game_over, self.score
     
